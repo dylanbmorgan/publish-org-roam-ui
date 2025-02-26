@@ -1,7 +1,7 @@
 #!/bin/bash
 
-read -p "Enter the ROAM_PATH: " ROAM_PATH
-read -p "Enter the ROAM_DB_FILE: " ROAM_DB_FILE
+ROAM_PATH=$(cd ../ && pwd)
+ROAM_DB_FILE='org-roam.db'
 ROAM_DB_PATH=$ROAM_PATH/$ROAM_DB_FILE
 ROAM_IMG_PATH=$ROAM_PATH/img
 
@@ -13,7 +13,7 @@ fi
 # create .env file
 pushd org-roam-ui
 if [ ! -f ".env" ]; then
-    echo "NEXT_PUBLIC_DEFAULT_SECTION_OPEN=true" > .env
+    echo "NEXT_PUBLIC_DEFAULT_SECTION_OPEN=true" >.env
 fi
 popd
 
